@@ -8,10 +8,6 @@
 
 import Foundation
 
-typealias SuccessCompletionBlock = (_ items: [AnyObject]?) -> ()
-typealias SuccessWithObjectCompletionBlock = (_ item: AnyObject?) -> ()
-typealias FailureHTTPCompletionBlock = (_ response: HTTPURLResponse?, _ error: Error?,_ userInfo:AnyObject?) -> ()
-
 protocol HomeRepositoryInterface:class {
 
     func requestRepositories(query:String, success: @escaping SuccessCompletionBlock, failure: @escaping FailureHTTPCompletionBlock)

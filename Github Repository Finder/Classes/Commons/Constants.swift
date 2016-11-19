@@ -8,6 +8,14 @@
 
 import UIKit
 
+/**
+ *  Blocks
+ */
+
+typealias SuccessCompletionBlock = (_ items: [AnyObject]?) -> ()
+typealias SuccessWithObjectCompletionBlock = (_ item: AnyObject?) -> ()
+typealias FailureHTTPCompletionBlock = (_ response: HTTPURLResponse?, _ error: Error?,_ userInfo:AnyObject?) -> ()
+
 class Constants {
 
     /**
@@ -19,8 +27,13 @@ class Constants {
         
         private static let kGetSearch: String = "search/"
         private static let kGetSearchRepositories: String = "repositories"
+        private static let kGetRepository: String = Constants.Key.fullname+"/"
+        private static let kGetContributors: String = "contributors"
+        private static let kGetIssues: String = "issues"
         
         static let kGetSearchRepositoriesURL: String = Constants.Urls.kEndPointApi + Constants.Urls.kGetSearch + Constants.Urls.kGetSearchRepositories
+        static let kGetContributorsURL: String = Constants.Urls.kEndPointApi + Constants.Urls.kGetRepository + Constants.Urls.kGetContributors
+        static let kGetIssuesURL: String = Constants.Urls.kEndPointApi + Constants.Urls.kGetRepository + Constants.Urls.kGetIssues
     }
     
     /**
@@ -52,5 +65,13 @@ class Constants {
         static let boldBig = UIFont.boldSystemFont(ofSize: 16)
     
     }
-
+    
+    /**
+     *  Keys
+     */
+    struct Key {
+        
+        static let fullname = "{fullname}"
+        
+    }
 }
