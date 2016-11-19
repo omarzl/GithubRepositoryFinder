@@ -43,6 +43,8 @@
 		A1CDEC5E1DE0E77600B4CB55 /* UserCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC5D1DE0E77600B4CB55 /* UserCellProtocol.swift */; };
 		A1CDEC611DE0E7D500B4CB55 /* InfoUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC601DE0E7D500B4CB55 /* InfoUserCell.swift */; };
 		A1CDEC631DE0E7E500B4CB55 /* InfoUserCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC621DE0E7E500B4CB55 /* InfoUserCellProtocol.swift */; };
+		A1CDEC661DE0F88700B4CB55 /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC651DE0F88700B4CB55 /* DetailsCell.swift */; };
+		A1CDEC681DE0F89600B4CB55 /* DetailsCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC671DE0F89600B4CB55 /* DetailsCellProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,8 @@
 		A1CDEC5D1DE0E77600B4CB55 /* UserCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCellProtocol.swift; path = Classes/VIPER/Repo/View/Cell/UserCell/UserCellProtocol.swift; sourceTree = "<group>"; };
 		A1CDEC601DE0E7D500B4CB55 /* InfoUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoUserCell.swift; path = Classes/VIPER/Repo/View/Cell/InfoUserCell/InfoUserCell.swift; sourceTree = "<group>"; };
 		A1CDEC621DE0E7E500B4CB55 /* InfoUserCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoUserCellProtocol.swift; path = Classes/VIPER/Repo/View/Cell/InfoUserCell/InfoUserCellProtocol.swift; sourceTree = "<group>"; };
+		A1CDEC651DE0F88700B4CB55 /* DetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsCell.swift; path = Classes/VIPER/Repo/View/Cell/DetailsCell/DetailsCell.swift; sourceTree = "<group>"; };
+		A1CDEC671DE0F89600B4CB55 /* DetailsCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsCellProtocol.swift; path = Classes/VIPER/Repo/View/Cell/DetailsCell/DetailsCellProtocol.swift; sourceTree = "<group>"; };
 		E04B5F527D780FCFCC12BBFD /* Pods-Github Repository Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Repository Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Repository Finder/Pods-Github Repository Finder.release.xcconfig"; sourceTree = "<group>"; };
 		F4554A2E480D90BF40F8E8B6 /* Pods-Github Repository Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Repository Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Github Repository Finder/Pods-Github Repository Finder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -362,6 +366,7 @@
 		A1CDEC571DE0E61B00B4CB55 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				A1CDEC641DE0F86D00B4CB55 /* DetailsCell */,
 				A1CDEC5F1DE0E7B200B4CB55 /* InfoUserCell */,
 				A1CDEC581DE0E62100B4CB55 /* UserCell */,
 			);
@@ -384,6 +389,15 @@
 				A1CDEC621DE0E7E500B4CB55 /* InfoUserCellProtocol.swift */,
 			);
 			name = InfoUserCell;
+			sourceTree = "<group>";
+		};
+		A1CDEC641DE0F86D00B4CB55 /* DetailsCell */ = {
+			isa = PBXGroup;
+			children = (
+				A1CDEC651DE0F88700B4CB55 /* DetailsCell.swift */,
+				A1CDEC671DE0F89600B4CB55 /* DetailsCellProtocol.swift */,
+			);
+			name = DetailsCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -512,6 +526,8 @@
 				A1083F6F1DE0223000319886 /* HomeCellProtocol.swift in Sources */,
 				A163D1241DE08FDC00F179BF /* Owner.swift in Sources */,
 				A1CDEC561DE0E16D00B4CB55 /* RepoDetailSection.swift in Sources */,
+				A1CDEC661DE0F88700B4CB55 /* DetailsCell.swift in Sources */,
+				A1CDEC681DE0F89600B4CB55 /* DetailsCellProtocol.swift in Sources */,
 				A1CDEC3F1DE0D76E00B4CB55 /* RepoRouting.swift in Sources */,
 				A1638F821DE0134B00478B83 /* HomeInterface.swift in Sources */,
 				A1638F721DE010A000478B83 /* RootRouting.swift in Sources */,

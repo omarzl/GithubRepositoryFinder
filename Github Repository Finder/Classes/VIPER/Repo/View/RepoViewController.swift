@@ -19,6 +19,7 @@ class RepoViewController: UIViewController {
         tableView.dataSource=self
         tableView.register(InfoUserCell.self, forCellReuseIdentifier: InfoUserCell.cellIdentifier)
         tableView.register(UserCell.self, forCellReuseIdentifier: UserCell.cellIdentifier)
+        tableView.register(DetailsCell.self, forCellReuseIdentifier: DetailsCell.cellIdentifier)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60.0
         
@@ -108,8 +109,9 @@ extension RepoViewController:UITableViewDataSource{
         var cell:UITableViewCell!
         let section=indexPath.section
         if section == 0{
-            let infoUserCell = tableView.dequeueReusableCell(withIdentifier: InfoUserCell.cellIdentifier, for: indexPath) as! InfoUserCell
-            cell=infoUserCell
+            let detailsCell = tableView.dequeueReusableCell(withIdentifier: DetailsCell.cellIdentifier, for: indexPath) as! DetailsCell
+            presenter.setContentToView(view: detailsCell, indexPath: indexPath)
+            cell=detailsCell
         }else if section == 1{
             let infoUserCell = tableView.dequeueReusableCell(withIdentifier: InfoUserCell.cellIdentifier, for: indexPath) as! InfoUserCell
             presenter.setContentToView(view: infoUserCell, indexPath: indexPath)

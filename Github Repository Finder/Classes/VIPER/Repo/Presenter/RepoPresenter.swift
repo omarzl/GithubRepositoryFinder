@@ -88,6 +88,14 @@ extension RepoPresenter: RepoInterface {
         }
     }
     
+    func setContentToView(view: DetailsCellProtocol, indexPath: IndexPath) {
+        let image=repository.owner?.userImage ?? ""
+        let username=repository.owner?.name ?? ""
+        view.set(username: username)
+        view.set(image: image)
+        view.set(desc: repository.desc)
+    }
+    
     // MARK: - Set interface properties methods.
 
     func titleForView() -> String {
@@ -112,7 +120,7 @@ extension RepoPresenter: RepoInterface {
         if name==Constants.Key.contributors{
             return contribuitors.count
         }
-        return 0
+        return 1
     }
     
     func titleForSection(index:Int) -> String {

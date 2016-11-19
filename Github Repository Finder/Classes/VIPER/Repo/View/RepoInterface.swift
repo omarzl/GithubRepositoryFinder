@@ -17,5 +17,6 @@ protocol RepoInterface:class {
     func titleForSection(index:Int)->String
     func setContentToView(view: UserCellProtocol, indexPath: IndexPath)
     func setContentToView(view: InfoUserCellProtocol, indexPath: IndexPath)
+    func setContentToView(view: DetailsCellProtocol, indexPath: IndexPath)
     
 }
