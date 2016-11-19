@@ -14,5 +14,7 @@ protocol HomeInterface:class {
     func numberOfRepositories() -> Int
     func getRepositoriesForString(name:String)
     func setContentToView(view: HomeCellProtocol, indexPath: IndexPath)
+    func didPressedButtonAtIndexPath(indexPath:IndexPath)
+    func didSelectViewAtIndexPath(indexPath:IndexPath)
     
 }

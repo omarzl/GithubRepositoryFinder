@@ -7,5 +7,6 @@ target 'Github Repository Finder' do
 	
   pod 'Alamofire'
   pod 'AlamofireObjectMapper'
+  pod 'AlamofireImage'
   
 end

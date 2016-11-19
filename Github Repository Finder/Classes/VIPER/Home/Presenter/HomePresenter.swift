@@ -34,15 +34,6 @@ extension HomePresenter: HomeInteractorOutput {
 
 extension HomePresenter: HomeInterface {
     
-    func setContentToView(view: HomeCellProtocol, indexPath: IndexPath) {
-        let repository=repositories[indexPath.row]
-        view.set(title: repository.name)
-    }
-    
-    func getRepositoriesForString(name: String) {
-        interactor?.getRepositories(query: name)
-    }
-    
     // MARK: - Set interface properties methods.
     
     func numberOfSections() -> Int {
@@ -52,5 +43,37 @@ extension HomePresenter: HomeInterface {
     func numberOfRepositories() -> Int {
         return repositories.count
     }
+    
+    func setContentToView(view: HomeCellProtocol, indexPath: IndexPath) {
+        let repository=repositories[indexPath.row]
+        let username=repository.owner?.name ?? ""
+        let userImage=repository.owner?.userImage ?? ""
+        view.set(title: repository.name)
+        view.set(desc: repository.desc)
+        view.set(url: repository.url)
+        view.set(username: username)
+        view.set(image: userImage)
+    }
+    
+    // MARK: - Search
+    
+    func getRepositoriesForString(name: String) {
+        interactor?.getRepositories(query: name)
+    }
+    
+    // MARK: - Selection methods
+    
+    func didPressedButtonAtIndexPath(indexPath: IndexPath) {
+        let repository=repositories[indexPath.row]
+        if let url=URL(string: repository.url){
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    func didSelectViewAtIndexPath(indexPath: IndexPath) {
+        
+    }
+    
+
     
 }

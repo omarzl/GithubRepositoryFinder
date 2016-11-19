@@ -25,6 +25,10 @@
 		A1638F8C1DE0142400478B83 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1638F8B1DE0142400478B83 /* Constants.swift */; };
 		A1638F8E1DE0146F00478B83 /* HomeRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1638F8D1DE0146F00478B83 /* HomeRepositoryInterface.swift */; };
 		A1638F911DE014B100478B83 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1638F901DE014B100478B83 /* Repository.swift */; };
+		A163D1241DE08FDC00F179BF /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163D1231DE08FDC00F179BF /* Owner.swift */; };
+		A163D1261DE090EF00F179BF /* LazyViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163D1251DE090EF00F179BF /* LazyViews.swift */; };
+		A163D12A1DE0A40B00F179BF /* HomeCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A163D1291DE0A40B00F179BF /* HomeCellDelegate.swift */; };
+		A1CDEC371DE0C26A00B4CB55 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC361DE0C26A00B4CB55 /* NavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		A1638F8B1DE0142400478B83 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Classes/Commons/Constants.swift; sourceTree = "<group>"; };
 		A1638F8D1DE0146F00478B83 /* HomeRepositoryInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeRepositoryInterface.swift; path = Classes/VIPER/Home/Repository/HomeRepositoryInterface.swift; sourceTree = "<group>"; };
 		A1638F901DE014B100478B83 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Repository.swift; path = Classes/Commons/Model/Repository.swift; sourceTree = "<group>"; };
+		A163D1231DE08FDC00F179BF /* Owner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Owner.swift; path = Classes/Commons/Model/Owner.swift; sourceTree = "<group>"; };
+		A163D1251DE090EF00F179BF /* LazyViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LazyViews.swift; path = Classes/Commons/View/LazyViews.swift; sourceTree = "<group>"; };
+		A163D1291DE0A40B00F179BF /* HomeCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeCellDelegate.swift; path = Classes/VIPER/Home/View/Cell/HomeCellDelegate.swift; sourceTree = "<group>"; };
+		A1CDEC361DE0C26A00B4CB55 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = Classes/Commons/View/NavigationController.swift; sourceTree = "<group>"; };
 		E04B5F527D780FCFCC12BBFD /* Pods-Github Repository Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Repository Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Repository Finder/Pods-Github Repository Finder.release.xcconfig"; sourceTree = "<group>"; };
 		F4554A2E480D90BF40F8E8B6 /* Pods-Github Repository Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Repository Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Github Repository Finder/Pods-Github Repository Finder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				A1638F711DE010A000478B83 /* RootRouting.swift */,
+				A163D1251DE090EF00F179BF /* LazyViews.swift */,
+				A1CDEC361DE0C26A00B4CB55 /* NavigationController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -237,8 +247,9 @@
 		A1638F8F1DE0149F00478B83 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A1638F901DE014B100478B83 /* Repository.swift */,
 				A1083F6C1DE01BDF00319886 /* GithubSearch.swift */,
+				A163D1231DE08FDC00F179BF /* Owner.swift */,
+				A1638F901DE014B100478B83 /* Repository.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -247,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				A1083F6A1DE019E500319886 /* HomeCell.swift */,
+				A163D1291DE0A40B00F179BF /* HomeCellDelegate.swift */,
 				A1083F6E1DE0223000319886 /* HomeCellProtocol.swift */,
 			);
 			name = Cell;
@@ -375,15 +387,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1083F6F1DE0223000319886 /* HomeCellProtocol.swift in Sources */,
+				A163D1241DE08FDC00F179BF /* Owner.swift in Sources */,
 				A1638F821DE0134B00478B83 /* HomeInterface.swift in Sources */,
 				A1638F721DE010A000478B83 /* RootRouting.swift in Sources */,
 				A1638F581DE0100C00478B83 /* AppDelegate.swift in Sources */,
+				A163D12A1DE0A40B00F179BF /* HomeCellDelegate.swift in Sources */,
 				A1638F7A1DE0111100478B83 /* HomeRouting.swift in Sources */,
 				A1638F7E1DE012A400478B83 /* HomePresenter.swift in Sources */,
 				A1638F8C1DE0142400478B83 /* Constants.swift in Sources */,
 				A1083F6B1DE019E500319886 /* HomeCell.swift in Sources */,
 				A1638F881DE013B400478B83 /* HomeInteractorIO.swift in Sources */,
 				A1638F7C1DE0117600478B83 /* HomeViewController.swift in Sources */,
+				A1CDEC371DE0C26A00B4CB55 /* NavigationController.swift in Sources */,
+				A163D1261DE090EF00F179BF /* LazyViews.swift in Sources */,
 				A1638F8A1DE0140500478B83 /* HomeRepository.swift in Sources */,
 				A1638F861DE0138D00478B83 /* HomeInteractor.swift in Sources */,
 				A1638F8E1DE0146F00478B83 /* HomeRepositoryInterface.swift in Sources */,

@@ -10,4 +10,8 @@ import UIKit
 
 protocol HomeCellProtocol {
     func set(title: String)
+    func set(image: String)
+    func set(username: String)
+    func set(desc: String)
+    func set(url: String)
 }

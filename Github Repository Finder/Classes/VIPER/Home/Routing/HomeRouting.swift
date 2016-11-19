@@ -35,7 +35,7 @@ class HomeRouting {
         
         self.presenter = presenter
         
-        let navigationController=UINavigationController(rootViewController: homeViewController)
+        let navigationController=NavigationController(rootViewController: homeViewController)
         rootRouting?.showRootViewController(viewController: navigationController)
     }
     
