@@ -58,7 +58,12 @@ extension HomePresenter: HomeInterface {
     // MARK: - Search
     
     func getRepositoriesForString(name: String) {
-        interactor?.getRepositories(query: name)
+        repositories.removeAll()
+        if name != ""{
+            interactor?.getRepositories(query: name)
+        }else{
+            homeUserInterface?.reloadView()
+        }
     }
     
     // MARK: - Selection methods

@@ -36,6 +36,15 @@ class HomeViewController: UIViewController {
         return wavesImageView
     }()
     
+    fileprivate lazy var searchBar : UISearchBar = {
+       
+        let searchBar=UISearchBar()
+        searchBar.translatesAutoresizingMaskIntoConstraints=false
+        searchBar.delegate=self
+        
+        return searchBar
+    }()
+    
     var wavesLeftConstraint:NSLayoutConstraint!
     var wavesImageWidth:CGFloat=0
     
@@ -51,8 +60,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         title="Github Rep Finder"
         configureView()
-        presenter!.getRepositoriesForString(name: "swift")
-        
         
         let wavesImage=#imageLiteral(resourceName: "waves")
         wavesImageWidth=wavesImage.size.width-UIScreen.main.bounds.width
@@ -64,13 +71,14 @@ class HomeViewController: UIViewController {
     func configureView() {
         
         view.backgroundColor=Constants.Color.white
+        view.addSubview(searchBar)
         view.addSubview(wavesImageView)
         view.addSubview(tableView)
         
         // Constraints
         
         let metrics = ["wavesHeight":231]
-        let views : [String : Any] = ["wavesImageView":wavesImageView,"tableView" : tableView]
+        let views : [String : Any] = ["searchBar":searchBar,"wavesImageView":wavesImageView,"tableView" : tableView]
      
         wavesLeftConstraint=NSLayoutConstraint(item: wavesImageView,
                                                attribute: .left,
@@ -83,13 +91,19 @@ class HomeViewController: UIViewController {
         view.addConstraint(wavesLeftConstraint)
         
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
+            "H:|[searchBar]|",
+                                                           options: [],
+                                                           metrics: metrics,
+                                                           views: views))
+        
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
             "H:|[tableView]|",
                                                            options: [],
                                                            metrics: metrics,
                                                            views: views))
         
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
-            "V:|[tableView]|",
+            "V:|[searchBar][tableView]|",
                                                            options: [],
                                                            metrics: metrics,
                                                            views: views))
@@ -189,4 +203,13 @@ extension HomeViewController:HomeCellDelegate{
         }
     }
 }
+
+// MARK: - UISearchBarDelegate
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        presenter!.getRepositoriesForString(name: searchText)
+    }
+}
+
 
