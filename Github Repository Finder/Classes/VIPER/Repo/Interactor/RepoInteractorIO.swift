@@ -11,12 +11,13 @@ import Foundation
 
 protocol RepoInteractorInput: class {
     
-    
+    func getIssues(repository:Repository)
+    func getContributors(repository:Repository)
     
 }
 
 protocol RepoInteractorOutput: class {
     
-    
+    func updateInterface()
     
 }

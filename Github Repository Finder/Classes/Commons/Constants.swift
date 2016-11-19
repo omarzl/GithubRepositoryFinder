@@ -27,7 +27,7 @@ class Constants {
         
         private static let kGetSearch: String = "search/"
         private static let kGetSearchRepositories: String = "repositories"
-        private static let kGetRepository: String = Constants.Key.fullname+"/"
+        private static let kGetRepository: String = "repos/"+Constants.Key.fullname+"/"
         private static let kGetContributors: String = "contributors"
         private static let kGetIssues: String = "issues"
         
@@ -72,6 +72,7 @@ class Constants {
     struct Key {
         
         static let fullname = "{fullname}"
-        
+        static let issues = "Principales errores"
+        static let contributors = "Principales contribuidores"
     }
 }

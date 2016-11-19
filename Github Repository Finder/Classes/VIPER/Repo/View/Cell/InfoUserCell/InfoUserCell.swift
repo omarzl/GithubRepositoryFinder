@@ -1,19 +1,16 @@
 //
-//  HomeCell.swift
+//  InfoUserCell.swift
 //  Github Repository Finder
 //
-//  Created by kryteria on 18/11/16.
+//  Created by kryteria on 19/11/16.
 //  Copyright © 2016 omarzl. All rights reserved.
 //
 
 import UIKit
-import AlamofireImage
 
-class HomeCell: UITableViewCell {
-
-    var didSetupConstraints = false
+class InfoUserCell: UITableViewCell {
     
-    var delegate:HomeCellDelegate?
+    var didSetupConstraints = false
     
     // MARK: - View metrics.
     
@@ -35,10 +32,20 @@ class HomeCell: UITableViewCell {
         return userImageView
     }()
     
+    fileprivate lazy var usernameLabel : UILabel = {
+        
+        let usernameLabel = LazyViews.defaultLabel()
+        usernameLabel.textColor=Constants.Color.black
+        usernameLabel.numberOfLines=0
+        usernameLabel.textAlignment = .center
+        usernameLabel.font=Constants.Font.small
+        
+        return usernameLabel
+    }()
+    
     fileprivate lazy var titleLabel : UILabel = {
         
         let titleLabel = LazyViews.defaultLabel()
-        titleLabel.textAlignment = .center
         titleLabel.numberOfLines=0
         titleLabel.font=Constants.Font.boldBig
         titleLabel.setContentHuggingPriority(UILayoutPriorityDefaultLow, for: .horizontal)
@@ -47,32 +54,12 @@ class HomeCell: UITableViewCell {
         return titleLabel
     }()
     
-    fileprivate lazy var usernameLabel : UILabel = {
-        
-        let usernameLabel = LazyViews.defaultLabel()
-        usernameLabel.textColor=Constants.Color.gray
-        usernameLabel.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh, for: .horizontal)
-        usernameLabel.textAlignment = .right
-        
-        return usernameLabel
-    }()
-    
     fileprivate lazy var descriptionLabel : UILabel = {
         
         let descriptionLabel = LazyViews.defaultLabel()
         descriptionLabel.numberOfLines=0
         
         return descriptionLabel
-    }()
-    
-    fileprivate lazy var urlButton : UIButton = {
-        
-        let urlButton = LazyViews.defaultButton()
-        urlButton.setTitleColor(Constants.Color.turquoise, for: .normal)
-        urlButton.titleLabel?.font=Constants.Font.small
-        urlButton.addTarget(self, action: #selector(HomeCell.didPressedButton), for: .touchUpInside)
-        
-        return urlButton
     }()
     
     
@@ -110,12 +97,10 @@ class HomeCell: UITableViewCell {
      Initializes the view.
      */
     func initializeView() {
-        backgroundColor=Constants.Color.clear
         contentView.addSubview(userImageView)
-        contentView.addSubview(titleLabel)
         contentView.addSubview(usernameLabel)
+        contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)
-        contentView.addSubview(urlButton)
         
     }
     
@@ -126,95 +111,76 @@ class HomeCell: UITableViewCell {
             // Constraints.
             
             let metrics = ["margin" : 5,"padding":10, "imageViewHeight": imageViewHeight, "imageViewWidth": imageViewWidth]
-            let views : [String : Any] = ["userImageView" : userImageView, "titleLabel" : titleLabel, "usernameLabel": usernameLabel, "descriptionLabel": descriptionLabel,"urlButton":urlButton]
+            let views : [String : Any] = ["userImageView" : userImageView, "usernameLabel": usernameLabel,"titleLabel":titleLabel,"descriptionLabel":descriptionLabel]
             
             contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
-                "H:|-padding-[usernameLabel]-margin-[userImageView(imageViewWidth)]-padding-|",
-                                                                    options: [],
-                                                                    metrics: metrics,
-                                                                    views: views))
-            
-            contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
-                "H:|-padding-[titleLabel]-margin-[userImageView]",
+                "H:|-padding-[userImageView(imageViewWidth)]-padding-[titleLabel]-padding-|",
                                                                       options: [],
                                                                       metrics: metrics,
                                                                       views: views))
             
             contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
-                "H:|-padding-[descriptionLabel]-padding-|",
-                                                                      options: [],
+                "V:|-padding-[userImageView(imageViewHeight)]-margin-[usernameLabel]-(>=padding)-|",
+                                                                      options: .alignAllCenterX,
                                                                       metrics: metrics,
                                                                       views: views))
             
             contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
-                "H:|-padding-[urlButton]-padding-|",
-                                                                      options: [],
+                "V:|-padding-[titleLabel]-margin-[descriptionLabel]-(>=padding)-|",
+                                                                      options: .alignAllCenterX,
                                                                       metrics: metrics,
                                                                       views: views))
             
-            contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
-                "V:|-padding-[userImageView(imageViewHeight)]-margin-[descriptionLabel]-margin-[urlButton]-padding@999-|",
-                                                                      options: [],
-                                                                      metrics: metrics,
-                                                                      views: views))
-            
-            contentView.addConstraint(NSLayoutConstraint(item: userImageView,
-                                                         attribute: .centerY,
+            contentView.addConstraint(NSLayoutConstraint(item: titleLabel,
+                                                         attribute: .width,
                                                          relatedBy: .equal,
-                                                         toItem: titleLabel,
-                                                         attribute: .centerY,
+                                                         toItem: descriptionLabel,
+                                                         attribute: .width,
                                                          multiplier: 1.0,
                                                          constant: 0))
             
             contentView.addConstraint(NSLayoutConstraint(item: userImageView,
-                                                         attribute: .top,
+                                                         attribute: .width,
                                                          relatedBy: .equal,
                                                          toItem: usernameLabel,
-                                                         attribute: .top,
+                                                         attribute: .width,
                                                          multiplier: 1.0,
                                                          constant: 0))
-
+            
             
             didSetupConstraints=true
         }
     }
-
-    
-    func didPressedButton(){
-        delegate?.didPressedButton(cell: self)
-    }
 }
 
-// MARK: - HomeCellProtocol
+// MARK: - InfoUserCellProtocol
 
-extension HomeCell:HomeCellProtocol {
-    func set(title: String) {
-        titleLabel.text=title
+extension InfoUserCell:InfoUserCellProtocol {
+    func set(username: String) {
+        usernameLabel.text=username
     }
     func set(image: String) {
         userImageView.image=nil
+        userImageView.isHidden = image == ""
         if let url=URL(string: image){
             userImageView.af_setImage(withURL: url)
         }
     }
-    func set(username: String) {
-        usernameLabel.text=username
+    func set(title: String) {
+        titleLabel.text=title
     }
     func set(desc: String) {
         descriptionLabel.text=desc
-    }
-    func set(url: String) {
-        urlButton.setTitle(url, for: .normal)
     }
 }
 
 // MARK: - Identifier
 
-extension HomeCell {
+extension InfoUserCell {
     
     static var cellIdentifier: String {
         get {
-            return "HomeCell"
+            return "InfoUserCell"
         }
     }
 }

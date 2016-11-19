@@ -16,7 +16,7 @@ class RepoRouting {
     
     // MARK: - Routing management.
     
-    func presentRepoViewControllerFromNavigationController(navigationController:NavigationController) {
+    func presentRepoViewControllerFromNavigationController(repo:Repository,navigationController:NavigationController) {
         
         let repoViewController = RepoViewController()
         let presenter = RepoPresenter()
@@ -28,6 +28,7 @@ class RepoRouting {
         presenter.routing = self
         presenter.repoUserInterface = repoViewController
         presenter.interactor = interactor
+        presenter.repository=repo
         
         interactor.repoRepository = repository
         interactor.output = presenter

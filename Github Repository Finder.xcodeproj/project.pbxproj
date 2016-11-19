@@ -37,6 +37,12 @@
 		A1CDEC491DE0D7C900B4CB55 /* RepoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC481DE0D7C900B4CB55 /* RepoRepository.swift */; };
 		A1CDEC4B1DE0D7D600B4CB55 /* RepoRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC4A1DE0D7D600B4CB55 /* RepoRepositoryInterface.swift */; };
 		A1CDEC4D1DE0D85B00B4CB55 /* RepoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC4C1DE0D85B00B4CB55 /* RepoInterface.swift */; };
+		A1CDEC511DE0DB4100B4CB55 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC501DE0DB4100B4CB55 /* Issue.swift */; };
+		A1CDEC561DE0E16D00B4CB55 /* RepoDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC551DE0E16D00B4CB55 /* RepoDetailSection.swift */; };
+		A1CDEC5C1DE0E75E00B4CB55 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC5B1DE0E75E00B4CB55 /* UserCell.swift */; };
+		A1CDEC5E1DE0E77600B4CB55 /* UserCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC5D1DE0E77600B4CB55 /* UserCellProtocol.swift */; };
+		A1CDEC611DE0E7D500B4CB55 /* InfoUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC601DE0E7D500B4CB55 /* InfoUserCell.swift */; };
+		A1CDEC631DE0E7E500B4CB55 /* InfoUserCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CDEC621DE0E7E500B4CB55 /* InfoUserCellProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +78,12 @@
 		A1CDEC481DE0D7C900B4CB55 /* RepoRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepoRepository.swift; path = Classes/VIPER/Repo/Repository/RepoRepository.swift; sourceTree = "<group>"; };
 		A1CDEC4A1DE0D7D600B4CB55 /* RepoRepositoryInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepoRepositoryInterface.swift; path = Classes/VIPER/Repo/Repository/RepoRepositoryInterface.swift; sourceTree = "<group>"; };
 		A1CDEC4C1DE0D85B00B4CB55 /* RepoInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepoInterface.swift; path = Classes/VIPER/Repo/View/RepoInterface.swift; sourceTree = "<group>"; };
+		A1CDEC501DE0DB4100B4CB55 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Issue.swift; path = Classes/Commons/Model/Issue.swift; sourceTree = "<group>"; };
+		A1CDEC551DE0E16D00B4CB55 /* RepoDetailSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepoDetailSection.swift; path = Classes/Commons/Model/RepoDetailSection.swift; sourceTree = "<group>"; };
+		A1CDEC5B1DE0E75E00B4CB55 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCell.swift; path = Classes/VIPER/Repo/View/Cell/UserCell/UserCell.swift; sourceTree = "<group>"; };
+		A1CDEC5D1DE0E77600B4CB55 /* UserCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserCellProtocol.swift; path = Classes/VIPER/Repo/View/Cell/UserCell/UserCellProtocol.swift; sourceTree = "<group>"; };
+		A1CDEC601DE0E7D500B4CB55 /* InfoUserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoUserCell.swift; path = Classes/VIPER/Repo/View/Cell/InfoUserCell/InfoUserCell.swift; sourceTree = "<group>"; };
+		A1CDEC621DE0E7E500B4CB55 /* InfoUserCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoUserCellProtocol.swift; path = Classes/VIPER/Repo/View/Cell/InfoUserCell/InfoUserCellProtocol.swift; sourceTree = "<group>"; };
 		E04B5F527D780FCFCC12BBFD /* Pods-Github Repository Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Repository Finder.release.xcconfig"; path = "Pods/Target Support Files/Pods-Github Repository Finder/Pods-Github Repository Finder.release.xcconfig"; sourceTree = "<group>"; };
 		F4554A2E480D90BF40F8E8B6 /* Pods-Github Repository Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Github Repository Finder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Github Repository Finder/Pods-Github Repository Finder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,9 +276,8 @@
 		A1638F8F1DE0149F00478B83 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A1083F6C1DE01BDF00319886 /* GithubSearch.swift */,
-				A163D1231DE08FDC00F179BF /* Owner.swift */,
-				A1638F901DE014B100478B83 /* Repository.swift */,
+				A1CDEC551DE0E16D00B4CB55 /* RepoDetailSection.swift */,
+				A1CDEC541DE0E15C00B4CB55 /* ORM */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -304,6 +315,7 @@
 		A1CDEC3A1DE0D73F00B4CB55 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A1CDEC571DE0E61B00B4CB55 /* Cell */,
 				A1CDEC401DE0D78500B4CB55 /* RepoViewController.swift */,
 				A1CDEC4C1DE0D85B00B4CB55 /* RepoInterface.swift */,
 			);
@@ -334,6 +346,44 @@
 				A1CDEC4A1DE0D7D600B4CB55 /* RepoRepositoryInterface.swift */,
 			);
 			name = Repository;
+			sourceTree = "<group>";
+		};
+		A1CDEC541DE0E15C00B4CB55 /* ORM */ = {
+			isa = PBXGroup;
+			children = (
+				A1083F6C1DE01BDF00319886 /* GithubSearch.swift */,
+				A163D1231DE08FDC00F179BF /* Owner.swift */,
+				A1638F901DE014B100478B83 /* Repository.swift */,
+				A1CDEC501DE0DB4100B4CB55 /* Issue.swift */,
+			);
+			name = ORM;
+			sourceTree = "<group>";
+		};
+		A1CDEC571DE0E61B00B4CB55 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A1CDEC5F1DE0E7B200B4CB55 /* InfoUserCell */,
+				A1CDEC581DE0E62100B4CB55 /* UserCell */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		A1CDEC581DE0E62100B4CB55 /* UserCell */ = {
+			isa = PBXGroup;
+			children = (
+				A1CDEC5B1DE0E75E00B4CB55 /* UserCell.swift */,
+				A1CDEC5D1DE0E77600B4CB55 /* UserCellProtocol.swift */,
+			);
+			name = UserCell;
+			sourceTree = "<group>";
+		};
+		A1CDEC5F1DE0E7B200B4CB55 /* InfoUserCell */ = {
+			isa = PBXGroup;
+			children = (
+				A1CDEC601DE0E7D500B4CB55 /* InfoUserCell.swift */,
+				A1CDEC621DE0E7E500B4CB55 /* InfoUserCellProtocol.swift */,
+			);
+			name = InfoUserCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,23 +511,29 @@
 				A1CDEC431DE0D79500B4CB55 /* RepoPresenter.swift in Sources */,
 				A1083F6F1DE0223000319886 /* HomeCellProtocol.swift in Sources */,
 				A163D1241DE08FDC00F179BF /* Owner.swift in Sources */,
+				A1CDEC561DE0E16D00B4CB55 /* RepoDetailSection.swift in Sources */,
 				A1CDEC3F1DE0D76E00B4CB55 /* RepoRouting.swift in Sources */,
 				A1638F821DE0134B00478B83 /* HomeInterface.swift in Sources */,
 				A1638F721DE010A000478B83 /* RootRouting.swift in Sources */,
 				A1638F581DE0100C00478B83 /* AppDelegate.swift in Sources */,
+				A1CDEC5C1DE0E75E00B4CB55 /* UserCell.swift in Sources */,
 				A163D12A1DE0A40B00F179BF /* HomeCellDelegate.swift in Sources */,
 				A1638F7A1DE0111100478B83 /* HomeRouting.swift in Sources */,
 				A1CDEC4B1DE0D7D600B4CB55 /* RepoRepositoryInterface.swift in Sources */,
 				A1638F7E1DE012A400478B83 /* HomePresenter.swift in Sources */,
 				A1CDEC471DE0D7B800B4CB55 /* RepoInteractorIO.swift in Sources */,
 				A1638F8C1DE0142400478B83 /* Constants.swift in Sources */,
+				A1CDEC5E1DE0E77600B4CB55 /* UserCellProtocol.swift in Sources */,
 				A1083F6B1DE019E500319886 /* HomeCell.swift in Sources */,
 				A1CDEC4D1DE0D85B00B4CB55 /* RepoInterface.swift in Sources */,
+				A1CDEC511DE0DB4100B4CB55 /* Issue.swift in Sources */,
 				A1CDEC411DE0D78500B4CB55 /* RepoViewController.swift in Sources */,
 				A1638F881DE013B400478B83 /* HomeInteractorIO.swift in Sources */,
 				A1638F7C1DE0117600478B83 /* HomeViewController.swift in Sources */,
 				A1CDEC451DE0D7AA00B4CB55 /* RepoInteractor.swift in Sources */,
 				A1CDEC371DE0C26A00B4CB55 /* NavigationController.swift in Sources */,
+				A1CDEC611DE0E7D500B4CB55 /* InfoUserCell.swift in Sources */,
+				A1CDEC631DE0E7E500B4CB55 /* InfoUserCellProtocol.swift in Sources */,
 				A163D1261DE090EF00F179BF /* LazyViews.swift in Sources */,
 				A1638F8A1DE0140500478B83 /* HomeRepository.swift in Sources */,
 				A1638F861DE0138D00478B83 /* HomeInteractor.swift in Sources */,

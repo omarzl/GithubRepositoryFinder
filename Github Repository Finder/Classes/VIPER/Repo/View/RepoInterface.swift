@@ -10,6 +10,12 @@ import UIKit
 
 protocol RepoInterface:class {
     
-    
+    func titleForView()->String
+    func requestDetails()
+    func numberOfSections()->Int
+    func numberOfRowsAtSection(index:Int)->Int
+    func titleForSection(index:Int)->String
+    func setContentToView(view: UserCellProtocol, indexPath: IndexPath)
+    func setContentToView(view: InfoUserCellProtocol, indexPath: IndexPath)
     
 }

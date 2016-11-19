@@ -14,6 +14,7 @@ class HomeRouting {
     
     var rootRouting: RootRouting?
     private weak var presenter: HomePresenter?
+    private weak var navigationController:NavigationController?
     
     // MARK: - Routing management.
     
@@ -35,8 +36,15 @@ class HomeRouting {
         
         self.presenter = presenter
         
-        let navigationController=NavigationController(rootViewController: homeViewController)
-        rootRouting?.showRootViewController(viewController: navigationController)
+        navigationController=NavigationController(rootViewController: homeViewController)
+        rootRouting?.showRootViewController(viewController: navigationController!)
+    }
+    
+    func presentRepositoryDetails(repository:Repository){
+        if let navigationController=navigationController{
+            let repoRouting=RepoRouting()
+            repoRouting.presentRepoViewControllerFromNavigationController(repo: repository, navigationController: navigationController)
+        }
     }
     
 }

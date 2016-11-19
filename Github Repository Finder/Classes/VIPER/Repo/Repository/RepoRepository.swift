@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RepoRepository {
     
@@ -18,7 +19,32 @@ class RepoRepository {
 
 // MARK: - RepoRepositoryInterface
 
-extension HomeRepository: RepoRepositoryInterface {
+extension RepoRepository: RepoRepositoryInterface {
  
+    func requestIssues(repoName: String, success: @escaping SuccessCompletionBlock, failure: @escaping FailureHTTPCompletionBlock) {
+
+        let requestPath=getIssuesPath.replacingOccurrences(of: Constants.Key.fullname, with: repoName)
+        
+        Alamofire.request(requestPath).responseArray { (response:DataResponse<[Issue]>) in
+            if response.result.isSuccess, let issues=response.result.value{
+                success(issues)
+            }else{
+                failure(response.response, response.result.error, nil)
+            }
+        }
+    }
+    
+    func requestContributors(repoName: String, success: @escaping SuccessCompletionBlock, failure: @escaping FailureHTTPCompletionBlock) {
+        
+        let requestPath=getContributorsPath.replacingOccurrences(of: Constants.Key.fullname, with: repoName)
+        
+        Alamofire.request(requestPath).responseArray { (response:DataResponse<[Owner]>) in
+            if response.result.isSuccess, let contributors=response.result.value{
+                success(contributors)
+            }else{
+                failure(response.response, response.result.error, nil)
+            }
+        }
+    }
     
 }

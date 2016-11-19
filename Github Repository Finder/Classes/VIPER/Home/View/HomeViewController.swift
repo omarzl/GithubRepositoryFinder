@@ -64,6 +64,8 @@ class HomeViewController: UIViewController {
         
         let wavesImage=#imageLiteral(resourceName: "waves")
         wavesImageWidth=wavesImage.size.width-UIScreen.main.bounds.width
+        
+        navigationItem.backBarButtonItem=UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     /**

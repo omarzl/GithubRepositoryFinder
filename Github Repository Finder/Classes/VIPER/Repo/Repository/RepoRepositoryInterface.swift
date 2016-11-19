@@ -10,4 +10,7 @@ import UIKit
 
 protocol RepoRepositoryInterface: class {
 
+    func requestContributors(repoName:String, success: @escaping SuccessCompletionBlock, failure: @escaping FailureHTTPCompletionBlock)
+    func requestIssues(repoName:String, success: @escaping SuccessCompletionBlock, failure: @escaping FailureHTTPCompletionBlock)
+
 }

@@ -80,6 +80,7 @@ extension HomePresenter: HomeInterface {
     }
     
     func didSelectViewAtIndexPath(indexPath: IndexPath) {
-        
+        let repository=repositories[indexPath.row]
+        routing?.presentRepositoryDetails(repository: repository)
     }
 }
