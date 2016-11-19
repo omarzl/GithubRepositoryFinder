@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60.0
         tableView.backgroundColor=Constants.Color.clear
+        tableView.keyboardDismissMode = .interactive
         
         return tableView
     }()

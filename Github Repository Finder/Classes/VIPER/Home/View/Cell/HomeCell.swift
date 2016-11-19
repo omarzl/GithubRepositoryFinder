@@ -22,17 +22,17 @@ class HomeCell: UITableViewCell {
     
     // MARK: - View objects.
     
-    fileprivate lazy var titleImageView : UIImageView = {
+    fileprivate lazy var userImageView : UIImageView = {
         
-        let titleImageView = LazyViews.defaultImageView()
-        titleImageView.contentMode = .scaleAspectFill
-        titleImageView.layer.cornerRadius=self.imageViewWidth/2.0
-        titleImageView.layer.borderColor=Constants.Color.grayLight.cgColor
-        titleImageView.layer.borderWidth=1.0
-        titleImageView.clipsToBounds=true
-        titleImageView.backgroundColor=Constants.Color.grayLight
+        let userImageView = LazyViews.defaultImageView()
+        userImageView.contentMode = .scaleAspectFill
+        userImageView.layer.cornerRadius=self.imageViewWidth/2.0
+        userImageView.layer.borderColor=Constants.Color.grayLight.cgColor
+        userImageView.layer.borderWidth=2.0
+        userImageView.clipsToBounds=true
+        userImageView.backgroundColor=Constants.Color.grayLight
         
-        return titleImageView
+        return userImageView
     }()
     
     fileprivate lazy var titleLabel : UILabel = {
@@ -111,7 +111,7 @@ class HomeCell: UITableViewCell {
      */
     func initializeView() {
         backgroundColor=Constants.Color.clear
-        contentView.addSubview(titleImageView)
+        contentView.addSubview(userImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(usernameLabel)
         contentView.addSubview(descriptionLabel)
@@ -126,16 +126,16 @@ class HomeCell: UITableViewCell {
             // Constraints.
             
             let metrics = ["margin" : 5,"padding":10, "imageViewHeight": imageViewHeight, "imageViewWidth": imageViewWidth]
-            let views : [String : Any] = ["titleImageView" : titleImageView, "titleLabel" : titleLabel, "usernameLabel": usernameLabel, "descriptionLabel": descriptionLabel,"urlButton":urlButton]
+            let views : [String : Any] = ["userImageView" : userImageView, "titleLabel" : titleLabel, "usernameLabel": usernameLabel, "descriptionLabel": descriptionLabel,"urlButton":urlButton]
             
             contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
-                "H:|-padding-[usernameLabel]-margin-[titleImageView(imageViewWidth)]-padding-|",
+                "H:|-padding-[usernameLabel]-margin-[userImageView(imageViewWidth)]-padding-|",
                                                                     options: [],
                                                                     metrics: metrics,
                                                                     views: views))
             
             contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
-                "H:|-padding-[titleLabel]-margin-[titleImageView]",
+                "H:|-padding-[titleLabel]-margin-[userImageView]",
                                                                       options: [],
                                                                       metrics: metrics,
                                                                       views: views))
@@ -153,12 +153,12 @@ class HomeCell: UITableViewCell {
                                                                       views: views))
             
             contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
-                "V:|-padding-[titleImageView(imageViewHeight)]-margin-[descriptionLabel]-margin-[urlButton]-padding-|",
+                "V:|-padding-[userImageView(imageViewHeight)]-margin-[descriptionLabel]-margin-[urlButton]-padding-|",
                                                                       options: [],
                                                                       metrics: metrics,
                                                                       views: views))
             
-            contentView.addConstraint(NSLayoutConstraint(item: titleImageView,
+            contentView.addConstraint(NSLayoutConstraint(item: userImageView,
                                                          attribute: .centerY,
                                                          relatedBy: .equal,
                                                          toItem: titleLabel,
@@ -166,7 +166,7 @@ class HomeCell: UITableViewCell {
                                                          multiplier: 1.0,
                                                          constant: 0))
             
-            contentView.addConstraint(NSLayoutConstraint(item: titleImageView,
+            contentView.addConstraint(NSLayoutConstraint(item: userImageView,
                                                          attribute: .top,
                                                          relatedBy: .equal,
                                                          toItem: usernameLabel,
@@ -192,9 +192,9 @@ extension HomeCell:HomeCellProtocol {
         titleLabel.text=title
     }
     func set(image: String) {
-        titleImageView.image=nil
+        userImageView.image=nil
         if let url=URL(string: image){
-            titleImageView.af_setImage(withURL: url)
+            userImageView.af_setImage(withURL: url)
         }
     }
     func set(username: String) {

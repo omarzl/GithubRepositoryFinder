@@ -82,7 +82,4 @@ extension HomePresenter: HomeInterface {
     func didSelectViewAtIndexPath(indexPath: IndexPath) {
         
     }
-    
-
-    
 }
