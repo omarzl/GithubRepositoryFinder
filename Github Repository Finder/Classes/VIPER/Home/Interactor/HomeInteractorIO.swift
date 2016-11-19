@@ -16,6 +16,6 @@ protocol HomeInteractorInput: class {
 
 protocol HomeInteractorOutput: class {
     
-    func updateUserInterfaceWithRepositories(repositories: [Repository])
+    func updateUserInterfaceWithRepositories(repositories: [Repository],queryName:String)
     
 }

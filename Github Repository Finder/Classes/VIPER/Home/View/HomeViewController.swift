@@ -157,6 +157,7 @@ extension HomeViewController:UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeCell.cellIdentifier) as! HomeCell
         cell.setNeedsUpdateConstraints()
         cell.updateConstraintsIfNeeded()
+        cell.selectionStyle = .none
         cell.delegate=self
         
         presenter?.setContentToView(view: cell, indexPath: indexPath)

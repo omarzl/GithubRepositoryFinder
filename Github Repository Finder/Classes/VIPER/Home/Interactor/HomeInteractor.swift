@@ -24,10 +24,10 @@ extension HomeInteractor: HomeInteractorInput {
     func getRepositories(query:String) {
         homeRepository?.requestRepositories(query: query, success: { [weak self] (repositories) in
             if let repositories=repositories as? [Repository] {
-                self?.output?.updateUserInterfaceWithRepositories(repositories: repositories)
+                self?.output?.updateUserInterfaceWithRepositories(repositories: repositories,queryName: query)
             }
             }, failure: { (response, error, userInfo) in
-                print(error)
+                print(response)
         })
     }
     

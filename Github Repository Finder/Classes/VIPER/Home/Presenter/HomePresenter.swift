@@ -16,6 +16,7 @@ class HomePresenter: NSObject {
     var interactor: HomeInteractorInput?
     var routing: HomeRouting?
     var repositories = [Repository]()
+    fileprivate var searchTerm=""
     
 }
 
@@ -23,8 +24,10 @@ class HomePresenter: NSObject {
 
 extension HomePresenter: HomeInteractorOutput {
     
-    func updateUserInterfaceWithRepositories(repositories: [Repository]) {
-        self.repositories=repositories
+    func updateUserInterfaceWithRepositories(repositories: [Repository],queryName:String) {
+        if searchTerm==queryName{
+            self.repositories=repositories
+        }
         homeUserInterface?.reloadView()
     }
     
@@ -59,6 +62,7 @@ extension HomePresenter: HomeInterface {
     
     func getRepositoriesForString(name: String) {
         repositories.removeAll()
+        searchTerm=name
         if name != ""{
             interactor?.getRepositories(query: name)
         }else{
